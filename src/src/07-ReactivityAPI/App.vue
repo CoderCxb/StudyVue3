@@ -4,7 +4,8 @@
 	<Reactive></Reactive>
 	<Refs></Refs>
 	<ComputedWatch></ComputedWatch>
-	<img src="../../assets/where.svg" />
+	<img src="@assets/where.svg" />
+	<Where></Where>
 </template>
 
 <script lang="ts">

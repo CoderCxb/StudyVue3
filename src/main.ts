@@ -5,9 +5,9 @@ import { createApp } from 'vue';
 // import App from './src/02-Option/App.vue';
 // import App from './src/03-Property/App.vue';
 // import App from './src/04-InstanceMethod/App.vue';
-import App from './src/05-Directive/App.vue';
+// import App from './src/05-Directive/App.vue';
 // import App from './src/06-BuildInComponent/App.vue';
-// import App from './src/07-ReactivityAPI/App.vue';
+import App from './src/07-ReactivityAPI/App.vue';
 // import App from './src/08-CompositionAPI/App.vue';
 //@ts-ignore
 import CommonComponent from './components/CommonComponent.vue';
