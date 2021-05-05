@@ -4,17 +4,30 @@
 	<Reactive></Reactive>
 	<Refs></Refs>
 	<ComputedWatch></ComputedWatch>
-	<img src="@assets/where.svg" />
-	<Where></Where>
+	<div class="box">
+		<img src="@/assets/where.svg" />
+	</div>
 </template>
 
 <script lang="ts">
 import Reactive from './Reactive.vue';
 import Refs from './Refs.vue';
 import ComputedWatch from './ComputedWatch.vue';
+import Hero from '@/assets/hero.json';
 export default {
 	components: { Reactive, Refs, ComputedWatch },
+	setup() {
+		console.log(Hero);
+		console.log(import.meta.env);
+	},
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.box {
+	img {
+		width: 100px;
+		height: 100px;
+	}
+}
+</style>

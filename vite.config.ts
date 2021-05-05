@@ -1,5 +1,6 @@
-import { UserConfig } from 'vite';
+import { UserConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
+import legacy from '@vitejs/plugin-legacy';
 const { resolve } = require('path');
 
 // https://vitejs.dev/config/
@@ -9,17 +10,50 @@ const { resolve } = require('path');
 
 export default ({ command, mode, ...rest }): UserConfig => {
 	console.log(command, mode, rest);
+	// 通过loadEnv('mode',)
+	console.log(loadEnv(mode, __dirname));
+
 	return {
-		plugins: [vue()],
+		base: '/',
+		plugins: [
+			// vue文件
+			vue(),
+			// 配置 浏览器兼容性
+			{
+				...legacy({
+					targets: ['defaults', 'not IE 11'],
+				}),
+				// 默认在build和serve都会运行 可以通过apply指定模式
+				apply: 'build',
+				// 默认post,在vite核心插件后调用  pre：核心插件前调用
+				enforce: 'pre',
+			},
+		],
 		// 默认： 'development' (开发模式)，'production' (生产模式)
+		mode: 'development',
+		// 设为 false 可以避免 Vite 清屏而错过在终端中打印某些关键信息
+		clearScreen: false,
 		optimizeDeps: {},
 		resolve: {
+			extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'],
+			// 别名
 			alias: {
-				'@assets': resolve(__dirname, './src/assets'),
-				'@components': resolve(__dirname, './src/components'),
+				'@': resolve(__dirname, './src'),
 			},
 		},
+		// 配置css
+		// css: {},
+		// 配置json
+		json: {
+			// 导出是使用是否JSON.parse()转成对象,字面量的性能较好
+			stringify: false,
+		},
+		css: {},
 		server: {
+			// host(主机名) port(端口号) https(是否开启https) open(自动打开浏览器)
+			// strictPort(端口号被占用是否直接退出)
+			// force  设置为 true 强制使依赖重新预构建
+			force: true,
 			// 实现代理
 			proxy: {
 				'/api': {
@@ -28,6 +62,14 @@ export default ({ command, mode, ...rest }): UserConfig => {
 					rewrite: (path) => path.replace(/^\/api/, ''),
 				},
 			},
+			// 为开发服务器配置cors
+			cors: true,
+			// hmr 热更新
+			hmr: {
+				timeout: 5000,
+			},
+			// 监听
+			// watch:{}
 		},
 		build: {
 			// 1. target 设置最终构建的浏览器兼容目标
