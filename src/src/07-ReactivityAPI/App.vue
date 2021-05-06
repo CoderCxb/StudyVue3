@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .box {
+	box-shadow: 0 0 3px 5px rgba(222, 222, 222, 0.1);
 	img {
 		width: 100px;
 		height: 100px;

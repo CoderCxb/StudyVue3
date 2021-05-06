@@ -7,18 +7,22 @@ import { createApp } from 'vue';
 // import App from './src/04-InstanceMethod/App.vue';
 // import App from './src/05-Directive/App.vue';
 // import App from './src/06-BuildInComponent/App.vue';
-import App from './src/07-ReactivityAPI/App.vue';
+// import App from './src/07-ReactivityAPI/App.vue';
 // import App from './src/08-CompositionAPI/App.vue';
-//@ts-ignore
+// import App from './src/09-UseElementPlus/App.vue';
+import App from './src/10-UseECharts/App.vue';
+// @ts-ignore
 import CommonComponent from './components/CommonComponent.vue';
 import router from './src/06-BuildInComponent/router';
+// import 'element-plus/lib/theme-chalk/index.css';
+import { importElementComponents } from './element-components';
 import './index.css';
 
 // 第一个参数为组件 第二个参数为props 需要组件中使用attrs接收
 const app = createApp(App, {
 	data: '传递给APP组件的setup的props',
 });
-
+importElementComponents(app);
 // 一.APP级别配置(应用配置) APP级别 全局有效
 
 // vm ViewModel
@@ -50,7 +54,7 @@ app.config.isCustomElement = (tag) => {
 
 // 5.性能
 // 设置为 true 以在浏览器开发工具的 performance/timeline 面板中启用对组件初始化、编译、渲染和更新的性能追踪。只适用于开发模式和支持 performance.mark API 的浏览器。 默认 false
-app.config.performance = false;
+app.config.performance = true;
 
 // 二.应用API
 

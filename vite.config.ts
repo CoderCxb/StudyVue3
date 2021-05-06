@@ -1,6 +1,7 @@
 import { UserConfig, loadEnv } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import legacy from '@vitejs/plugin-legacy';
+import styleImport from 'vite-plugin-style-import';
 const { resolve } = require('path');
 
 // https://vitejs.dev/config/
@@ -26,8 +27,24 @@ export default ({ command, mode, ...rest }): UserConfig => {
 				// 默认在build和serve都会运行 可以通过apply指定模式
 				apply: 'build',
 				// 默认post,在vite核心插件后调用  pre：核心插件前调用
-				enforce: 'pre',
+				// enforce: 'pre',
 			},
+			styleImport({
+				libs: [
+					{
+						libraryName: 'element-plus',
+						esModule: true,
+						ensureStyleFile: true,
+						resolveStyle: (name) => {
+							name = name.slice(3);
+							return `element-plus/packages/theme-chalk/src/${name}.scss`;
+						},
+						resolveComponent: (name) => {
+							return `element-plus/lib/${name}`;
+						},
+					},
+				],
+			}),
 		],
 		// 默认： 'development' (开发模式)，'production' (生产模式)
 		mode: 'development',
@@ -88,7 +105,7 @@ export default ({ command, mode, ...rest }): UserConfig => {
 			// 如果禁用 则整个项目的css都会被提取到一个文件
 			cssCodeSplit: true,
 			// 6.sourcemap 构建后是否生成 source map 文件
-			sourcemap: true,
+			sourcemap: false,
 			// 7. 配置rollup选项
 			rollupOptions: {},
 			// 8. brotliSize
