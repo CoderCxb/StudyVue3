@@ -10,12 +10,15 @@ import { createApp } from 'vue';
 // import App from './src/07-ReactivityAPI/App.vue';
 // import App from './src/08-CompositionAPI/App.vue';
 // import App from './src/09-UseElementPlus/App.vue';
-import App from './src/10-UseECharts/App.vue';
+// import App from './src/10-UseECharts/App.vue';
+import App from './src/11-UseVuex/App.vue';
+
 // @ts-ignore
 import CommonComponent from './components/CommonComponent.vue';
 import router from './src/06-BuildInComponent/router';
 // import 'element-plus/lib/theme-chalk/index.css';
 import { importElementComponents } from './element-components';
+import { store } from './store/index';
 import './index.css';
 
 // 第一个参数为组件 第二个参数为props 需要组件中使用attrs接收
@@ -107,6 +110,7 @@ app.mixin({
 const AppProvide = '使用Provide向内注射的数据';
 app.provide('AppProvide', AppProvide);
 app.use(router);
+app.use(store);
 // 5.将Vue的应用挂载到指定的元素上
 app.mount('#app');
 
