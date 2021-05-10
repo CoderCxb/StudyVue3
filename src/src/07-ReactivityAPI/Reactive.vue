@@ -44,6 +44,8 @@ export default {
 		const person = { name: 'marco', job: { frame: 'vue2.x', info: {} } };
 		// 1. reactive
 		// 1.1 接收对象 若接收的是基本数据类型 则其没有响应式
+		// 不能直接对reactive进行赋值 哪怕赋值的也是reactive对象也不行 会失去响应式
+		// 如果想对数组进行清空,可以使用 splice 或者 ref
 		const reactivePerson = reactive(person);
 		reactivePerson.working = ref(true);
 		const reactiveNum = reactive(99);

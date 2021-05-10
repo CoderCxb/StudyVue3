@@ -4,12 +4,22 @@ import { actions, BookActions } from './actions';
 import { getters, BookGetter } from './getters';
 
 export const book = {
-  state,
-  mutations,
-  actions,
-  getters
-}
+	state,
+	mutations: {
+		...mutations,
+		async test() {
+			Promise.reject().catch(() => {
+				// state.books.pop();
+				console.log(state.books);
+			});
+		},
+	},
+	actions,
+	getters,
+};
 
 export const BookConstants = {
-  BookMutations, BookActions, BookGetter
-}
+	BookMutations,
+	BookActions,
+	BookGetter,
+};
