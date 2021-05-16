@@ -5,13 +5,13 @@ import { createApp } from 'vue';
 // import App from './src/02-Option/App.vue';
 // import App from './src/03-Property/App.vue';
 // import App from './src/04-InstanceMethod/App.vue';
-// import App from './src/05-Directive/App.vue';
+import App from './src/05-Directive/App.vue';
 // import App from './src/06-BuildInComponent/App.vue';
 // import App from './src/07-ReactivityAPI/App.vue';
 // import App from './src/08-CompositionAPI/App.vue';
 // import App from './src/09-UseElementPlus/App.vue';
 // import App from './src/10-UseECharts/App.vue';
-import App from './src/11-UseVuex/App.vue';
+// import App from './src/11-UseVuex/App.vue';
 
 // @ts-ignore
 import CommonComponent from './components/CommonComponent.vue';
@@ -86,17 +86,17 @@ app.directive('AppDirective', {
 		console.log('APP级别指令:组件创建时触发:', el, binding, vNode);
 	},
 	// 在绑定元素的父组件挂载之前调用
-	beforeMount() {},
+	beforeMount() { },
 	// 绑定元素的父组件挂载时调用
-	mounted() {},
+	mounted() { },
 	// 在包含组件的 VNode 更新之前调用
-	beforeUpdate() {},
+	beforeUpdate() { },
 	// 在包含组件的 VNode 及其子组件的 VNode 更新之后调用
-	updated() {},
+	updated() { },
 	// 在绑定元素的父组件卸载之前调用
-	beforeUnmount() {},
+	beforeUnmount() { },
 	// 卸载绑定元素的父组件时调用
-	unmounted() {},
+	unmounted() { },
 });
 
 // 3.APP级别的mixin(混入) 可以给每个组件添加生命周期的操作
