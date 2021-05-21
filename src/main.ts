@@ -11,7 +11,8 @@ import { createApp } from 'vue';
 // import App from './src/08-CompositionAPI/App.vue';
 // import App from './src/09-UseElementPlus/App.vue';
 // import App from './src/10-UseECharts/App.vue';
-import App from './src/11-UseVuex/App.vue';
+// import App from './src/11-UseVuex/App.vue';
+import App from './src/12-VirtualList/App.vue';
 
 // @ts-ignore
 import CommonComponent from './components/CommonComponent.vue';
