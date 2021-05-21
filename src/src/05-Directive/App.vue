@@ -9,7 +9,7 @@
 			</template>
 		</Directive>
 		<!-- 演示diff算法  -->
-		<!-- <Diff></Diff> -->
+		<Diff></Diff>
 		<!-- <component :is="'Diff'"></component> -->
 	</div>
 </template>

@@ -3,6 +3,7 @@ import vue from '@vitejs/plugin-vue';
 import legacy from '@vitejs/plugin-legacy';
 import styleImport from 'vite-plugin-style-import';
 const { resolve } = require('path');
+import viteCompression from 'vite-plugin-compression';
 
 // https://vitejs.dev/config/
 // export default defineConfig({
@@ -45,6 +46,14 @@ export default ({ command, mode, ...rest }): UserConfig => {
 					},
 				],
 			}),
+			viteCompression({
+				verbose: true,
+				disable: false,
+				threshold: 10240,
+				algorithm: 'gzip',
+				ext: '.gz',
+				compressionOptions: {}
+			})
 		],
 		// 默认： 'development' (开发模式)，'production' (生产模式)
 		mode: 'development',
