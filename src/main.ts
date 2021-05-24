@@ -18,7 +18,7 @@ import App from './src/12-VirtualList/App.vue';
 import CommonComponent from './components/CommonComponent.vue';
 import router from './src/06-BuildInComponent/router';
 // import 'element-plus/lib/theme-chalk/index.css';
-import { importElementComponents } from './element-components';
+import { importElementComponents } from './utils/element-components';
 import { store } from './store/index';
 import './index.css';
 
