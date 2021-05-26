@@ -6,7 +6,7 @@
     "build": "vite build",
     "build2": "vue-tsc --noEmit && vite build",
     "serve": "vite preview",
-    "commit":"cz"
+    "commit": "cz"
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",
@@ -32,9 +32,9 @@
     "vite-plugin-style-import": "^0.10.0",
     "vue-tsc": "^0.0.24"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-customizable"
-    }
+  "config":{
+		"commitizen": {
+			"path": "./node_modules/cz-customizable"
+		}
   }
 }
