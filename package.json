@@ -20,11 +20,17 @@
   },
   "devDependencies": {
     "@types/node": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.25.0",
+    "@typescript-eslint/parser": "^4.25.0",
     "@vitejs/plugin-legacy": "^1.3.3",
     "@vitejs/plugin-vue": "^1.2.2",
     "@vue/compiler-sfc": "^3.0.5",
     "cz-conventional-changelog": "^3.3.0",
     "cz-customizable": "^6.3.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.3",
+    "prettier": "^2.3.0",
     "sass": "^1.32.12",
     "typescript": "^4.1.3",
     "vite": "^2.2.3",
@@ -32,9 +38,9 @@
     "vite-plugin-style-import": "^0.10.0",
     "vue-tsc": "^0.0.24"
   },
-  "config":{
-		"commitizen": {
-			"path": "./node_modules/cz-customizable"
-		}
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
   }
 }
